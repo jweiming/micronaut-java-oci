@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# vars
+APPLICATION_NAME=hello-world
+
+# Check if Micronaut is installed, otherwise install it
+
+# Create micronaut java application
+echo "Creating Micronaut Java application"
+mn create-app $APPLICATION_NAME
+
+# Generate the wercker yml 
+echo "Generating kubernetes yaml files"
+mkdir $APPLICATION_NAME/oke
+cp ./template/oke/oke_deployment.yaml.template $APPLICATION_NAME/oke/oke_deployment.yaml
+cp ./template/oke/oke_service.yaml.template $APPLICATION_NAME/oke/oke_service.yaml
+sed 's/<APPLICATION_NAME>/$APPLICATION_NAME/g' $APPLICATION_NAME/oke/oke_deployment.yaml
+sed 's/<APPLICATION_NAME>/$APPLICATION_NAME/g' $APPLICATION_NAME/oke/oke_service.yaml
