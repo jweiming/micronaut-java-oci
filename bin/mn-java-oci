@@ -13,13 +13,13 @@ echo "[INFO]	Creating Micronaut Java application"
 mn create-app $APPLICATION_NAME
 
 # Generate the Wercker yml
-echo "[INFO]	Generating yml file for Wercker" 
+echo "[INFO]	Generate Wercker files" 
 sed -e "s@<APPLICATION_NAME>@$APPLICATION_NAME@g" -e "s@<REGION_CODE>@$REGION_CODE@g" -e "s@<TENANCY_NAME>@$TENANCY_NAME@g" ./bin/template/wercker.yml.template > wercker.yml
 
 # Generate the Kubernetes yml
-echo "[INFO]	Generating yml files for kubernetes"
+echo "[INFO]	Generate Kubernetes deployment files"
 mkdir $APPLICATION_NAME/oke
-sed -e "s@<APPLICATION_NAME>@$APPLICATION_NAME@g" -e "s@<IMAGE_REPO>@$REPO_URL/$REPO_TENANCY/$APPLICATION_NAME:latest@g" ./bin/template/oke/oke_deployment.yaml.template > $APPLICATION_NAME/oke/oke_deployment.yaml
-sed "s/<APPLICATION_NAME>/$APPLICATION_NAME/g" ./bin/template/oke/oke_service.yaml.template > $APPLICATION_NAME/oke/oke_service.yaml
+sed -e "s@<APPLICATION_NAME>@$APPLICATION_NAME@g" -e "s@<IMAGE_REPO>@$REPO_URL/$REPO_TENANCY/$APPLICATION_NAME:latest@g" -e "s@<NAMESPACE>@$NAMESPACE@g" -e "s@<REGION_CODE>@$REGION_CODE@g" -e "s@<TENANCY_NAME>@$TENANCY_NAME@g" ./bin/template/oke/oke_deployment.yaml.template > $APPLICATION_NAME/oke/oke_deployment.yaml
+sed -e "s@<APPLICATION_NAME>@$APPLICATION_NAME@g" -e "s@<NAMESPACE>@$NAMESPACE@g" ./bin/template/oke/oke_service.yaml.template > $APPLICATION_NAME/oke/oke_service.yaml
 
 echo "[INFO]	Successfully created application"

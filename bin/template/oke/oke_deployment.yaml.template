@@ -7,7 +7,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: <APPLICATION_NAME>
-
+  namespace: <NAMESPACE>
 spec:
   replicas: 1
   selector:

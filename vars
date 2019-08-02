@@ -7,4 +7,5 @@ APPLICATION_NAME=hello-world
 REGION_CODE=iad 
 TENANCY_NAME=oardc1
 
-
+# OKE 
+NAMESPACE=poc

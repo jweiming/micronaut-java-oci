@@ -11,9 +11,11 @@ box: gradle:5.5.1-jdk11
 # mn-java-oci usage:
 # Read more about OCIR
 # https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html
-# Add the following envrionment variables into your Wercker application
-# - $USERNAME - username for container registry in OCIR
-# - $PASSWORD - pasword for container registry in OCIR
+# Create the following envrionment variables into your Wercker application
+# 1. $USERNAME - username for container registry in OCIR
+# 2. $PASSWORD - pasword for container registry in OCIR
+# 3. $OKE_MASTER - Kubernetes address
+# 4. $OKE_TOKEN - token string to access the cluster
 
 
 build:
@@ -49,30 +51,8 @@ build:
         registry: https://iad.ocir.io/v2
 
 deploy-to-oke:
-  box: oracle/graalvm-ce:19.0.0
 
   steps:
-
-    - script:
-        name: debug
-        code: |
-          echo $WERCKER_OUTPUT_DIR
-          ls -l $WERCKER_OUTPUT_DIR
-          echo $WERCKER_ROOT
-          ls -l $WERCKER_ROOT
-    - bash-template:
-        cwd: $WERCKER_ROOT/oke
-
-    - script:
-        name: Remove template files
-        cwd: $WERCKER_ROOT/oke
-        code: |
-          rm *.template.yaml
-    - script:
-        name: debug
-        cwd: $WERCKER_ROOT/oke
-        code: |
-          ls -l
     - script:
         name: echo tags
         code: |
@@ -84,7 +64,7 @@ deploy-to-oke:
         debug: true
         server: $OKE_MASTER
         token: $OKE_TOKEN
-        cwd: $WERCKER_ROOT/oke/
+        cwd: $WERCKER_ROOT/hello-world/oke/
         insecure-skip-tls-verify: true
         command: apply -f .
 
@@ -93,4 +73,4 @@ deploy-to-oke:
         server: $OKE_MASTER
         token: $OKE_TOKEN
         insecure-skip-tls-verify: true
-        command: patch deployment/mn-graalvm-app -p '{"spec":{"progressDeadlineSeconds":600}}'
+        command: patch deployment/hello-world -p '{"spec":{"progressDeadlineSeconds":600}}'

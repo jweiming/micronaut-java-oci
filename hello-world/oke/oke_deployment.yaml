@@ -6,8 +6,8 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mn-graalvm-app
-
+  name: hello-world
+  namespace: poc
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: //hello-world:latest
+          image: iad.ocir.io/oardc1/hello-world:latest
           ports:
             - name: hello-world_port
               containerPort: 8080
