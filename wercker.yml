@@ -36,7 +36,7 @@ build:
         password: $PASSWORD
         image-name: hello-world
         tag: ${WERCKER_GIT_COMMIT}
-        repository: hello-world
+        repository: oardc1/hello-world
         registry: https://iad.ocir.io/v2
 
     # push as latest tag
@@ -45,7 +45,7 @@ build:
         password: $PASSWORD
         image-name: hello-world
         tag: latest
-        repository: hello-world
+        repository: oardc1/hello-world
         registry: https://iad.ocir.io/v2
 
 deploy-to-oke:
