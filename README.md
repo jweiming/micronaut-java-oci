@@ -93,10 +93,3 @@ The pipeline will run automatically whenever code commit happens the next time. 
 * Push container image to container registry in OCI
 * Deploy to OKE
 
-## Credits
-
-The labs and materials are referenced to official GraalVM resources.
-- https://guides.micronaut.io/micronaut-creating-first-graal-app/guide/index.html
-- https://www.graalvm.org/docs/getting-started/
-- https://www.graalvm.org/docs/getting-started/#native-images
-
