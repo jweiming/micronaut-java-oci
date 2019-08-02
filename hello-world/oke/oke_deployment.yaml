@@ -22,7 +22,7 @@ spec:
         - name: hello-world
           image: iad.ocir.io/oardc1/hello-world:latest
           ports:
-            - name: hello-world_port
+            - name: service-port
               containerPort: 8080
               protocol: TCP
 
