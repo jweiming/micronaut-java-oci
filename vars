@@ -4,8 +4,8 @@
 APPLICATION_NAME=hello-world
 
 # OCI Registry
-REGION_CODE=iad 
-TENANCY_NAME=oardc1
+REGION_CODE=<e.g. iad> 
+TENANCY_NAME=<tenancy_name>
 
 # OKE 
-NAMESPACE=poc
+NAMESPACE=default
