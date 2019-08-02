@@ -14,6 +14,7 @@ build:
   steps:
     - java/gradle:
       task: build
+      build_file: hello-world/build.gradle
       cache_project_cache: true
 
     - internal/docker-build:
