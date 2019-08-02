@@ -5,3 +5,6 @@ APPLICATION_NAME=hello-world
 
 # OCI Registry
 REGION_CODE=iad 
+TENANCY_NAME=oardc1
+
+

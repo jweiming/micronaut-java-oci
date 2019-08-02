@@ -14,7 +14,7 @@ mn create-app $APPLICATION_NAME
 
 # Generate the Wercker yml
 echo "[INFO]	Generating yml file for Wercker" 
-sed -e "s@<APPLICATION_NAME>@$APPLICATION_NAME@g" -e "s@<REGION_CODE>@$REGION_CODE@g" ./bin/template/wercker.yml.template > wercker.yml
+sed -e "s@<APPLICATION_NAME>@$APPLICATION_NAME@g" -e "s@<REGION_CODE>@$REGION_CODE@g" -e "s@<TENANCY_NAME>@$TENANCY_NAME@g" ./bin/template/wercker.yml.template > wercker.yml
 
 # Generate the Kubernetes yml
 echo "[INFO]	Generating yml files for kubernetes"

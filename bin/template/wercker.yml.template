@@ -36,7 +36,7 @@ build:
         password: $PASSWORD
         image-name: <APPLICATION_NAME>
         tag: ${WERCKER_GIT_COMMIT}
-        repository: <APPLICATION_NAME>
+        repository: <TENANCY_NAME>/<APPLICATION_NAME>
         registry: https://<REGION_CODE>.ocir.io/v2
 
     # push as latest tag
@@ -45,7 +45,7 @@ build:
         password: $PASSWORD
         image-name: <APPLICATION_NAME>
         tag: latest
-        repository: <APPLICATION_NAME>
+        repository: <TENANCY_NAME>/<APPLICATION_NAME>
         registry: https://<REGION_CODE>.ocir.io/v2
 
 deploy-to-oke:
