@@ -53,13 +53,6 @@ build:
 deploy-to-oke:
 
   steps:
-    - script:
-        name: echo tags
-        code: |
-          chmod 777 $WERCKER_ROOT/oke/oke_service.yaml
-          chmod 777 $WERCKER_ROOT/oke/oke_deployment.yaml
-          echo "Docker image and tag:"
-          echo "${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}"
     - wercker/kubectl@3.14.0:
         debug: true
         server: $OKE_MASTER
