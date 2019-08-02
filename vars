@@ -4,8 +4,4 @@
 APPLICATION_NAME=hello-world
 
 # OCI Registry
-REPO_URL=iad.ocir.io
-REPO_TENANCY=oardc1
-REPO_USERNAME=$REPO_TENANCY/joseph.che
- 
-
+REGION_CODE=iad 

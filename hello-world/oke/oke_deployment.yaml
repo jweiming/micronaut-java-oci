@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: iad.ocir.io/oardc1/hello-world:latest
+          image: //hello-world:latest
           ports:
             - name: hello-world_port
               containerPort: 8080

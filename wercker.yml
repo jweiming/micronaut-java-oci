@@ -7,15 +7,24 @@ box: gradle:5.5.1-jdk11
 # Read more about pipelines on our dev center
 # https://devcenter.wercker.com/development/pipelines/
 
+
+# mn-java-oci usage:
+# Read more about OCIR
+# https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html
+# Add the following envrionment variables into your Wercker application
+# - $USERNAME - username for container registry in OCIR
+# - $PASSWORD - pasword for container registry in OCIR
+
+
 build:
   # Steps make up the actions in your pipeline
   # Read more about steps on our dev center:
   # https://devcenter.wercker.com/development/steps/
   steps:
     - java/gradle:
-      task: build
-      build_file: hello-world/build.gradle
-      cache_project_cache: true
+        task: build
+        build_file: hello-world/build.gradle
+        cache_project_cache: true
 
     - internal/docker-build:
         context: hello-world/
@@ -27,8 +36,8 @@ build:
         password: $PASSWORD
         image-name: hello-world
         tag: ${WERCKER_GIT_COMMIT}
-        repository: oardc1/joseph.che
-        registry: https://iad.ocir.io/v2
+        repository: hello-world
+        registry: https://<REGION_CODE>.ocir.io/v2
 
     # push as latest tag
     - internal/docker-push:
@@ -36,8 +45,8 @@ build:
         password: $PASSWORD
         image-name: hello-world
         tag: latest
-        repository: oardc1/joseph.che
-        registry: https://iad.ocir.io/v2
+        repository: hello-world
+        registry: https://<REGION_CODE>.ocir.io/v2
 
 deploy-to-oke:
   box: oracle/graalvm-ce:19.0.0
