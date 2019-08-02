@@ -66,9 +66,3 @@ deploy-to-oke:
         insecure-skip-tls-verify: true
         command: apply -f .
 
-    - wercker/kubectl@3.14.0:
-        name: set deployment timeout
-        server: $OKE_MASTER
-        token: $OKE_TOKEN
-        insecure-skip-tls-verify: true
-        command: patch deployment/hello-world -p '{"spec":{"progressDeadlineSeconds":600}}'

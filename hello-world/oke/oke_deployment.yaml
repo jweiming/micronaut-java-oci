@@ -9,7 +9,12 @@ metadata:
   name: hello-world
   namespace: poc
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 25%
   selector:
     matchLabels:
       app: hello-world
@@ -25,4 +30,11 @@ spec:
             - name: service-port
               containerPort: 8080
               protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              initialDelaySeconds: 5
+              periodSeconds: 5
+              successThreshold: 1
 
