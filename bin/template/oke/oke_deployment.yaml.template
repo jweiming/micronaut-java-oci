@@ -6,7 +6,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mn-graalvm-app
+  name: <APPLICATION_NAME>
 
 spec:
   replicas: 1
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: <APPLICATION_NAME>
-          image: <IMAGE_REPO>
+          image: <REGION_CODE>.ocir.io/<TENANCY_NAME>/<APPLICATION_NAME>:latest
           ports:
             - name: <APPLICATION_NAME>_port
               containerPort: 8080
