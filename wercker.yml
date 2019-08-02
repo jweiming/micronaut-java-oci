@@ -18,24 +18,24 @@ build:
 
     - internal/docker-build:
         context: ./
-        image-name: <APPLICATION_NAME>
+        image-name: hello-world
 
     # push as commit-id tag
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        image-name: <APPLICATION_NAME>
+        image-name: hello-world
         tag: ${WERCKER_GIT_COMMIT}
-        repository: <REPO_NAME>
+        repository: oardc1/joseph.che
         registry: https://iad.ocir.io/v2
 
     # push as latest tag
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        image-name: <APPLICATION_NAME>
+        image-name: hello-world
         tag: latest
-        repository: <REPO_NAME>
+        repository: oardc1/joseph.che
         registry: https://iad.ocir.io/v2
 
 deploy-to-oke:
