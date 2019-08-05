@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: hackathon.demo
+---
+testFramework: junit
+sourceLanguage: java
