@@ -64,7 +64,7 @@ deploy-to-oke:
         token: $OKE_TOKEN
         cwd: $WERCKER_ROOT/hackathon/
         insecure-skip-tls-verify: true
-        command: create secret docker-registry ocir-secret --docker-server=iad.ocir.io --docker-username="$USERNAME" --docker-password="OCI_AUTH_TOKEN" --docker-email='test@test.com' --dry-run -o yaml > secret.yaml; cat secret.yaml
+        command: create secret docker-registry ocir-secret --docker-server=iad.ocir.io --docker-username="$USERNAME" --docker-password="$OCI_AUTH_TOKEN" --docker-email='test@test.com' --dry-run -o yaml > secret.yaml; cat secret.yaml
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
