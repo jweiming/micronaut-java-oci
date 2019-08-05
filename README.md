@@ -28,6 +28,7 @@ This project is created for developers to easily create default Micronaut Java a
 
 ### Configuration
 
+
 **Important**: Create a fork of this repo in your own personal Github account. The reason for forking the project is Wercker will have to connect to your Github account to link to the application later.
 
 Clone the project in your Github account into your local environment.
