@@ -91,11 +91,11 @@ The generated ```wercker.yml``` already includes the pipelines in the workflow t
 
 ![example screenshot](doc/wercker_wf_screenshot.JPG)
 
-### Run the pipeline
+## Conclusion
 
-The pipeline will run automatically whenever code commit happens the next time. The default pipeline is configured to do the following:
-* Gradle build
-* Dockerfile to containize the application
-* Push container image to container registry in OCI
+The pipeline will run automatically whenever code commit happens the next time. The generated ```wercker.yml``` and OKE yaml files are configured to do the following:
+* Gradle compilation
+* Dockerfile to containerize application
+* Push container image to container registry in OCI (*set to public*)
 * Deploy to OKE
 
