@@ -60,19 +60,21 @@ deploy-to-oke:
           chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_deployment.yaml
     
     - wercker/kubectl@3.14.0:
+        debug: true
         server: $OKE_MASTER
         token: $OKE_TOKEN
         cwd: $WERCKER_ROOT/<APPLICATION_NAME>/
         insecure-skip-tls-verify: true
-        command: create secret docker-registry ocir-secret --docker-server=<REGION_CODE>.ocir.io --docker-username="$USERNAME" --docker-password="OCI_AUTH_TOKEN" --docker-email='test@test.com' --dry-run -o yaml > secret.yaml
+        command: create secret docker-registry ocir-secret --docker-server=<REGION_CODE>.ocir.io --docker-username=$USERNAME --docker-password=$OCI_AUTH_TOKEN --docker-email='test@test.com' --dry-run -o yaml > secret.yaml
     - wercker/kubectl@3.14.0:
+        debug: true
         server: $OKE_MASTER
         token: $OKE_TOKEN
         cwd: $WERCKER_ROOT/<APPLICATION_NAME>/
         insecure-skip-tls-verify: true
         command: apply -f secret.yaml
-    
     - wercker/kubectl@3.14.0:
+        debug: true
         server: $OKE_MASTER
         token: $OKE_TOKEN
         cwd: $WERCKER_ROOT/<APPLICATION_NAME>/oke/
