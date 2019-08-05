@@ -1,0 +1,28 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+# imagepullsecrets
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hackathon-demo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hackathon-demo
+  template:
+    metadata:
+      labels:
+        app: hackathon-demo
+    spec:
+      containers:
+        - name: hackathon-demo
+          image: iad.ocir.io/oardc1/hackathon-demo:latest
+          ports:
+            - name: service-port
+              containerPort: 8080
+              protocol: TCP
+
