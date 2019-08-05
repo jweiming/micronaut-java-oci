@@ -99,3 +99,9 @@ The pipeline will run automatically whenever code commit happens the next time. 
 * Push container image to container registry in OCI (*set to public*)
 * Deploy to OKE
 
+#### Pending Work:
+* Handling private OCIR repositories
+* Check for micronaut installation, if not install it
+* Script to provision OKE
+* 
+
