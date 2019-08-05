@@ -104,4 +104,5 @@ The pipeline will run automatically whenever code commit happens the next time. 
 * Check for micronaut installation, if not install it
 * Script to provision OKE
 * OKE deployment to handle rolling upgrade strategy
+* Handling application port setting
 
