@@ -59,16 +59,18 @@ deploy-to-oke:
           chmod 777 $WERCKER_ROOT/hackathon-demo/oke/oke_service.yaml
           chmod 777 $WERCKER_ROOT/hackathon-demo/oke/oke_deployment.yaml
     - wercker/kubectl@3.14.0:
-        debug: true
         server: $OKE_MASTER
         token: $OKE_TOKEN
         insecure-skip-tls-verify: true
         command: create secret docker-registry ocir-secret --docker-server=iad.ocir.io --docker-username="$USERNAME" --docker-password="$OCI_AUTH_TOKEN" --docker-email='test@test.com'
     - wercker/kubectl@3.14.0:
-        debug: true
         server: $OKE_MASTER
         token: $OKE_TOKEN
         cwd: $WERCKER_ROOT/hackathon-demo/oke/
         insecure-skip-tls-verify: true
         command: apply -f .
-
+    - wercker/kubectl@3.14.0:
+        server: $OKE_MASTER
+        token: $OKE_TOKEN
+        insecure-skip-tls-verify: true
+        command: delete secret docker-registry ocir-secret
