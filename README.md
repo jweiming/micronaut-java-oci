@@ -103,5 +103,5 @@ The pipeline will run automatically whenever code commit happens the next time. 
 * Handling private OCIR repositories
 * Check for micronaut installation, if not install it
 * Script to provision OKE
-* 
+* OKE deployment to handle rolling upgrade strategy
 
