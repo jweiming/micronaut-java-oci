@@ -83,7 +83,7 @@ OKE_TOKEN	: You can get the value from the kubeconfig file of your cluster
 
 Example:
 
-![example screenshot](https://miro.medium.com/max/770/1*YHrRaBZgHoZTntKolZeFjA.png)
+![example screenshot](doc/wercker_env_screenshot.JPG)
 
 ### Run the pipeline
 
