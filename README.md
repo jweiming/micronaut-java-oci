@@ -67,23 +67,29 @@ $ git commit -a -m "basic micronaut application created"
 $ git push origin master
 ```
 
-### Link Wercker to your application
+### Post Step 1: Link Wercker to your application
 
 Login to Wercker and select ```Add Application```. In the wizard, choose the ```micronaut-java-oci``` project from your Github account. 
 
 Go into the application and create the following environment variables.
 
 ```
-# You only need this 4 variables:
+# You will need this four variables:
 USERNAME	: <tenancy-name>/<username> e.g. oardc1/joseph.che@oracle.com
 PASSWORD	: Your user Auth token value 
 OKE_MASTER	: The address of the cluster
 OKE_TOKEN	: You can get the value from the kubeconfig file of your cluster
 ```
 
-Example:
+Example screenshot:
 
 ![example screenshot](doc/wercker_env_screenshot.JPG)
+
+### Post Step 2: Enable deployment to OKE
+
+The generated ```wercker.yml``` already includes the pipelines in the workflow to deploy application to OKE. The ```build``` workflow is enabled by default in Wercker, so now you need to add the ```deploy-to-oke``` pipeline and set it to execute after the ```build``` pipeline. An example screenshot below.
+
+![example screenshot](doc/wercker_wf_screenshot.JPG)
 
 ### Run the pipeline
 
