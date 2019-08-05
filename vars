@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Application
-APPLICATION_NAME=hackathon
+APPLICATION_NAME=oracle-workshop
 
 # OCI Registry
 REGION_CODE=iad 
