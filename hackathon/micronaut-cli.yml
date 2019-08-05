@@ -1,5 +1,0 @@
-profile: service
-defaultPackage: hackathon
----
-testFramework: junit
-sourceLanguage: java
