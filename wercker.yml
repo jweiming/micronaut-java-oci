@@ -25,30 +25,30 @@ build:
   steps:
     - java/gradle:
         task: build
-        build_file: <APPLICATION_NAME>/build.gradle
+        build_file: hello-world/build.gradle
         cache_project_cache: true
 
     - internal/docker-build:
-        context: <APPLICATION_NAME>/
-        image-name: <APPLICATION_NAME>
+        context: hello-world/
+        image-name: hello-world
 
     # push as commit-id tag
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        image-name: <APPLICATION_NAME>
+        image-name: hello-world
         tag: ${WERCKER_GIT_COMMIT}
-        repository: <TENANCY_NAME>/<APPLICATION_NAME>
-        registry: https://<REGION_CODE>.ocir.io/v2
+        repository: oardc1/hello-world
+        registry: https://iad.ocir.io/v2
 
     # push as latest tag
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        image-name: <APPLICATION_NAME>
+        image-name: hello-world
         tag: latest
-        repository: <TENANCY_NAME>/<APPLICATION_NAME>
-        registry: https://<REGION_CODE>.ocir.io/v2
+        repository: oardc1/hello-world
+        registry: https://iad.ocir.io/v2
 
 deploy-to-oke:
 
@@ -56,24 +56,24 @@ deploy-to-oke:
     - script:
         name: echo tags
         code: |
-          chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_service.yaml
-          chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_deployment.yaml
+          chmod 777 $WERCKER_ROOT/hello-world/oke/oke_service.yaml
+          chmod 777 $WERCKER_ROOT/hello-world/oke/oke_deployment.yaml
     
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
-        cwd: $WERCKER_ROOT/<APPLICATION_NAME>/
+        cwd: $WERCKER_ROOT/hello-world/
         insecure-skip-tls-verify: true
-        command: create secret docker-registry ocir-secret --docker-server=<REGION_CODE>.ocir.io --docker-username='$USERNAME' --docker-password='$OCI_AUTH_TOKEN' --docker-email='test@test.com' --dry-run -o yaml > secret.yaml
+        command: create secret docker-registry ocir-secret --docker-server=iad.ocir.io --docker-username='$USERNAME' --docker-password='$OCI_AUTH_TOKEN' --docker-email='test@test.com' --dry-run -o yaml > secret.yaml
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
-        cwd: $WERCKER_ROOT/<APPLICATION_NAME>/
+        cwd: $WERCKER_ROOT/hello-world/
         insecure-skip-tls-verify: true
         command: apply -f secret.yaml
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
-        cwd: $WERCKER_ROOT/<APPLICATION_NAME>/oke/
+        cwd: $WERCKER_ROOT/hello-world/oke/
         insecure-skip-tls-verify: true
         command: apply -f .
