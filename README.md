@@ -76,7 +76,7 @@ Login to Wercker and select ```Add Application```. In the wizard, choose the ```
 Go into the application and create the following environment variables.
 
 ```
-# You will need this four variables:
+# You will need this five variables:
 USERNAME	: <tenancy-name>/<username> e.g. oardc1/joseph.che@oracle.com
 PASSWORD	: Your user Auth token value 
 OKE_MASTER	: The address of the cluster
