@@ -9,12 +9,7 @@ metadata:
   name: <APPLICATION_NAME>
   namespace: <NAMESPACE>
 spec:
-  replicas: 2
-  strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxSurge: 1
-    maxUnavailable: 25%
+  replicas: 1
   selector:
     matchLabels:
       app: <APPLICATION_NAME>
@@ -30,11 +25,4 @@ spec:
             - name: service-port
               containerPort: 8080
               protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8080
-              initialDelaySeconds: 5
-              periodSeconds: 5
-              successThreshold: 1
 

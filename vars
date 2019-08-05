@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Application
-APPLICATION_NAME=hello-world
+APPLICATION_NAME=hackathon-demo
 
 # OCI Registry
-REGION_CODE=<e.g. iad> 
-TENANCY_NAME=<tenancy_name>
+REGION_CODE=iad 
+TENANCY_NAME=oardc1
 
 # OKE 
 NAMESPACE=default
