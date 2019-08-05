@@ -16,7 +16,7 @@ box: gradle:5.5.1-jdk11
 # 2. $PASSWORD - pasword for container registry in OCIR
 # 3. $OKE_MASTER - Kubernetes address
 # 4. $OKE_TOKEN - token string to access the cluster
-
+# 6. $OCI_AUTH_TOKEN - the auth token for your user in OCI
 
 build:
   # Steps make up the actions in your pipeline
@@ -58,6 +58,13 @@ deploy-to-oke:
         code: |
           chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_service.yaml
           chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_deployment.yaml
+    - wercker/kubectl@3.14.0:
+        debug: true
+        server: $OKE_MASTER
+        token: $OKE_TOKEN
+        insecure-skip-tls-verify: true
+        command: create secret docker-registry ocir-secret
+--docker-server=<REGION_CODE>.ocir.io --docker-username="$USERNAME" --docker-password="$OCI_AUTH_TOKEN" --docker-email='test@test.com'
     - wercker/kubectl@3.14.0:
         debug: true
         server: $OKE_MASTER
