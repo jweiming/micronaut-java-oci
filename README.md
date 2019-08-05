@@ -79,6 +79,7 @@ USERNAME	: <tenancy-name>/<username> e.g. oardc1/joseph.che@oracle.com
 PASSWORD	: Your user Auth token value 
 OKE_MASTER	: The address of the cluster
 OKE_TOKEN	: You can get the value from the kubeconfig file of your cluster
+OCI_AUTH_TOKEN	: You can get this value from the OCI console user page
 ```
 
 Example screenshot:
