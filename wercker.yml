@@ -25,30 +25,30 @@ build:
   steps:
     - java/gradle:
         task: build
-        build_file: <APPLICATION_NAME>/build.gradle
+        build_file: hackathon/build.gradle
         cache_project_cache: true
 
     - internal/docker-build:
-        context: <APPLICATION_NAME>/
-        image-name: <APPLICATION_NAME>
+        context: hackathon/
+        image-name: hackathon
 
     # push as commit-id tag
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        image-name: <APPLICATION_NAME>
+        image-name: hackathon
         tag: ${WERCKER_GIT_COMMIT}
-        repository: <TENANCY_NAME>/<APPLICATION_NAME>
-        registry: https://<REGION_CODE>.ocir.io/v2
+        repository: oardc1/hackathon
+        registry: https://iad.ocir.io/v2
 
     # push as latest tag
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        image-name: <APPLICATION_NAME>
+        image-name: hackathon
         tag: latest
-        repository: <TENANCY_NAME>/<APPLICATION_NAME>
-        registry: https://<REGION_CODE>.ocir.io/v2
+        repository: oardc1/hackathon
+        registry: https://iad.ocir.io/v2
 
 deploy-to-oke:
 
@@ -56,16 +56,16 @@ deploy-to-oke:
     - script:
         name: echo tags
         code: |
-          chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_service.yaml
-          chmod 777 $WERCKER_ROOT/<APPLICATION_NAME>/oke/oke_deployment.yaml
+          chmod 777 $WERCKER_ROOT/hackathon/oke/oke_service.yaml
+          chmod 777 $WERCKER_ROOT/hackathon/oke/oke_deployment.yaml
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
         insecure-skip-tls-verify: true
-        command: create secret docker-registry ocirsecret --docker-server=<REGION_CODE>.ocir.io --docker-username="$USERNAME" --docker-password="$OCI_AUTH_TOKEN" --docker-email='test@test.com' --dry-run -o yaml | kubectl apply -f - 
+        command: create secret docker-registry ocirsecret --docker-server=iad.ocir.io --docker-username="$USERNAME" --docker-password="$OCI_AUTH_TOKEN" --docker-email='test@test.com' --dry-run -o yaml | kubectl apply -f - 
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
-        cwd: $WERCKER_ROOT/<APPLICATION_NAME>/oke/
+        cwd: $WERCKER_ROOT/hackathon/oke/
         insecure-skip-tls-verify: true
         command: apply -f .

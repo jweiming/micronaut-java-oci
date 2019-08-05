@@ -6,21 +6,21 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: <APPLICATION_NAME>
-  namespace: <NAMESPACE>
+  name: hackathon
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: <APPLICATION_NAME>
+      app: hackathon
   template:
     metadata:
       labels:
-        app: <APPLICATION_NAME>
+        app: hackathon
     spec:
       containers:
-        - name: <APPLICATION_NAME>
-          image: <REGION_CODE>.ocir.io/<TENANCY_NAME>/<APPLICATION_NAME>:latest
+        - name: hackathon
+          image: iad.ocir.io/oardc1/hackathon:latest
           ports:
             - name: service-port
               containerPort: 8080
