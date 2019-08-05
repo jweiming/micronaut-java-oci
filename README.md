@@ -67,6 +67,8 @@ $ git commit -a -m "basic micronaut application created"
 $ git push origin master
 ```
 
+**Note**: The container image will be pushed into a private container repository on OCI under the same application name (e.g. hello-world). This is created by default, and the wercker step handle the creation of the Kubernetes secret on OKE if it is not exist.
+
 ### Post Step 1: Link Wercker to your application
 
 Login to Wercker and select ```Add Application```. In the wizard, choose the ```micronaut-java-oci``` project from your Github account. 
@@ -101,7 +103,6 @@ The pipeline will run automatically whenever code commit happens the next time. 
 * Deploy to OKE
 
 #### Pending Work:
-* Handling private OCIR repositories
 * Check for micronaut installation, if not install it
 * Script to provision OKE
 * OKE deployment to handle rolling upgrade strategy

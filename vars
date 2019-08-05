@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Application
-APPLICATION_NAME=oracle-workshop
+APPLICATION_NAME=hello-world
 
 # OCI Registry
-REGION_CODE=iad 
+REGION_CODE=iad
 TENANCY_NAME=oardc1
 
 # OKE 
