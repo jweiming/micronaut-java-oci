@@ -1,0 +1,29 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+# imagepullsecrets
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-world
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+        - name: hello-world
+          image: iad.ocir.io/oardc1/hello-world:latest
+          ports:
+            - name: service-port
+              containerPort: 8080
+              protocol: TCP
+      imagePullSecrets:
+      - name: ocir-secret
