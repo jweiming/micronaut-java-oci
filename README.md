@@ -2,6 +2,8 @@
 
 This project is created for developers to easily create default Micronaut Java applications and auto-generates the files required for basic CI/CD pipeline with ```Wercker``` and ```OKE```.
 
+![workflow](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/wercker/img/t0a.png)
+
 ## Pre-requisites
 
 1. [Wercker](https://app.wercker.com). A free account is sufficient to build your application.
