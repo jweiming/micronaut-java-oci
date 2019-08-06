@@ -99,7 +99,7 @@ The generated ```wercker.yml``` already includes the pipelines in the workflow t
 The pipeline will run automatically whenever code commit happens the next time. The generated ```wercker.yml``` and OKE yaml files are configured to do the following:
 * Gradle compilation
 * Dockerfile to containerize application
-* Push container image to container registry in OCI (*set to public*)
+* Push container image to container registry in OCI (created in private mode)
 * Deploy to OKE
 
 #### Pending Work:
