@@ -6,7 +6,10 @@ source ./vars
 echo "mn-java-oci 0.0.1"
 
 # Check if Micronaut is installed, otherwise install it
-
+if ! mn_loc="$(type -p "mn")" || [[ -z $mn_loc ]]; then
+  echo "[ERROR]	 Micronaut is not installed. Aborting."
+  exit 1; 
+fi
 
 # Create Micronaut Java application
 echo "[INFO]	Creating Micronaut Java application"
