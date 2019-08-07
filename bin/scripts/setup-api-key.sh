@@ -1,7 +1,11 @@
 #!/bin/bash
 
 echo "**** Generating API Keys ****"
-mkdir ~/.oci
+if [ -d "~/.oci" ]; then
+  echo "OCI user folder exists."
+else
+  mkdir ~/.oci
+fi
 openssl genrsa -out ~/.oci/oci_api_key.pem 2048
 chmod go-rwx ~/.oci/oci_api_key.pem
 openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem
