@@ -13,10 +13,9 @@ box: gradle:5.5.1-jdk11
 # https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html
 # Create the following envrionment variables into your Wercker application
 # 1. $USERNAME - username for container registry in OCIR
-# 2. $PASSWORD - pasword for container registry in OCIR
+# 2. $PASSWORD - password for container registry in OCIR (auth token value)
 # 3. $OKE_MASTER - Kubernetes address
 # 4. $OKE_TOKEN - token string to access the cluster
-# 6. $OCI_AUTH_TOKEN - the auth token for your user in OCI
 
 build:
   # Steps make up the actions in your pipeline
@@ -64,7 +63,7 @@ deploy-to-oke:
         token: $OKE_TOKEN
         cwd: $WERCKER_ROOT/<APPLICATION_NAME>/
         insecure-skip-tls-verify: true
-        command: create secret docker-registry ocir-secret --docker-server=<REGION_CODE>.ocir.io --docker-username='$USERNAME' --docker-password='$OCI_AUTH_TOKEN' --docker-email='test@test.com' --dry-run -o yaml > secret.yaml
+        command: create secret docker-registry ocir-secret --docker-server=<REGION_CODE>.ocir.io --docker-username='$USERNAME' --docker-password='$PASSWORD' --docker-email='test@test.com' --dry-run -o yaml > secret.yaml
     - wercker/kubectl@3.14.0:
         server: $OKE_MASTER
         token: $OKE_TOKEN
