@@ -2,7 +2,7 @@
 
 echo "**** Generating API Keys ****"
 if [ -d "~/.oci" ]; then
-  echo "OCI user folder exists."
+  #do nothing
 else
   mkdir ~/.oci
 fi
