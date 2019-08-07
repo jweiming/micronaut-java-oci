@@ -1,9 +1,7 @@
 #!/bin/bash
 
 echo "**** Generating API Keys ****"
-if [ -d "~/.oci" ]; then
-  #do nothing
-else
+if [ ! -d "~/.oci" ]; then
   mkdir ~/.oci
 fi
 openssl genrsa -out ~/.oci/oci_api_key.pem 2048
