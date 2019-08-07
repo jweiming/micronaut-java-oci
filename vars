@@ -4,8 +4,18 @@
 APPLICATION_NAME=hello-world
 
 # OCI Registry
-REGION_CODE=iad
-TENANCY_NAME=oardc1
+REGION_CODE=		# e.g. iad
+REGION_NAME=		# e.g. us-ashburn-1, us-phoenix-1
+TENANCY_NAME=
 
 # OKE 
 NAMESPACE=default
+
+# Provision OKE - only for provisioning OKE cluster
+# If PROVISION_BASIC_CLUSTER is set to false, you are not required to enter the values below
+PROVISION_BASIC_CLUSTER=
+COMPARTMENT_OCID=
+TENANCY_OCID=
+USER_OCID=
+USER_FINGERPRINT=
+

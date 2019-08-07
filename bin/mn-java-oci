@@ -5,10 +5,17 @@ source ./vars
 
 echo "mn-java-oci 0.0.1"
 
+# Generate the OKE cluster 
+FLAG=$PROVISION_BASIC_CLUSTER
+if [[ $FLAG = "true" ]]; then
+  echo "[INFO]	PROVISION_BASIC_CLUSTER=$FLAG - Provisioning OKE cluster"
+  ./scripts/setup-oke.sh 
+fi
+
 # Check if Micronaut is installed, otherwise install it
 if ! mn_loc="$(type -p "mn")" || [[ -z $mn_loc ]]; then
-  echo "[ERROR]	 Micronaut is not installed. Aborting."
-  exit 1; 
+  echo "[INFO]	Installing Micronaut with SDKMAN! (details at https://sdkman.io/)"
+  ./scripts/setup-micronaut.sh 
 fi
 
 # Create Micronaut Java application
