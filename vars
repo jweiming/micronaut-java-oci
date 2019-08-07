@@ -13,7 +13,7 @@ NAMESPACE=default
 
 # Provision OKE - only for provisioning OKE cluster
 # If PROVISION_BASIC_CLUSTER is set to false, you are not required to enter the values below
-PROVISION_BASIC_CLUSTER=
+PROVISION_BASIC_CLUSTER=    # true, false
 COMPARTMENT_OCID=
 TENANCY_OCID=
 USER_OCID=
