@@ -1,6 +1,6 @@
 # Micronaut-Java-OCI
 
-In this project, the tool is created for the purpose of developers can easily create a default Micronaut Java applications together with the supporting services and generates those files required for a basic CI/CD pipeline with ```Wercker``` and ```OKE```.
+In this project, the tool allows developers to easily create a default Micronaut Java applications together with the supporting services and generates those files required for a basic CI/CD pipeline with ```Wercker``` and ```OKE```.
 
 ![workflow](doc/flow.JPG)
 
