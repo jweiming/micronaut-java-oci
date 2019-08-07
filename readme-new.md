@@ -18,8 +18,7 @@ In this project, the tool is created for the purpose of developers can easily cr
 
 ## Using the tool
 
-
-#### Clone the project
+### Clone the project
 
 **Important**: Create a fork of this repo in your own personal Github account. The reason for forking the project is Wercker will have to connect to your Github account to link to the application later.
 
@@ -36,7 +35,7 @@ $ cd micronaut-java-oci
 $ chmod -R +x bin/
 ```
 
-#### Create and upload the OCI API key
+### Create and upload the OCI API key
 
 Run the script to generate the API keys.
 
@@ -65,13 +64,13 @@ Note down the your fingerprint ```b5:6c:ac:ff:4d:35:25:ee:5f:d7:29:73:9b:e2:cc:9
 
 Now you will need to upload your public key. [https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm).
 
-#### Create the Auth Token
+### Create the Auth Token
 
 Create the Auth Token for your user. [https://docs.cloud.oracle.com/iaas/Content/Registry/Tasks/registrygettingauthtoken.htm](https://docs.cloud.oracle.com/iaas/Content/Registry/Tasks/registrygettingauthtoken.htm)
 
 The Auth Token value will look something like ```fEfRHee}]Dwbn]2823:O```. This value will be your Container Registry password.
 
-#### Modify the vars file
+### Modify the vars file
 
 Enter your application and OCI account values into the ```vars``` file. Refer to this for instructions on getting the values from OCI [https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm)
 
@@ -102,7 +101,7 @@ USER_OCID=<user-ocid>
 USER_FINGERPRINT=<user-fingerprint>		# e.g. b5:6c:ac:ff:4d:35:25:ee:5f:d7:29:73:9b:e2:cc:92
 ```
 
-#### Generate your application code
+### Generate your application code
 
 ```
 $ bin/mn-java-oci
@@ -137,7 +136,7 @@ After 10-15 minutes, the following basic application structure will be created.
 * Kubernetes yaml files are created in ```micronaut-java-oci/hello-world/oke/```
 
 
-#### Setting up Wercker
+### Setting up Wercker
 
 Login to Wercker and select ```Add Application```. In the wizard, choose the ```micronaut-java-oci``` project from your Github account. 
 
@@ -159,7 +158,7 @@ The generated ```wercker.yml``` already includes the pipelines in the workflow t
 
 ![example screenshot](doc/wercker_wf_screenshot.JPG)
 
-#### Combining all of the above: Run the pipeline
+### Combining all of the above: Run the pipeline
 
 You can commit and push your repo to Github now.
 
