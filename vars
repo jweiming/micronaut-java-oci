@@ -4,18 +4,17 @@
 APPLICATION_NAME=hello-world
 
 # OCI Registry
-REGION_CODE=		# e.g. iad, phx
-REGION_NAME=		# e.g. us-ashburn-1, us-phoenix-1
-TENANCY_NAME=
+REGION_CODE=phx
+REGION_NAME=us-phoenix-1                # e.g. us-ashburn-1, us-phoenix-1
+TENANCY_NAME=oraclekennguyen
 
-# OKE 
+# OKE
 NAMESPACE=default
 
 # Provision OKE - only for provisioning OKE cluster
 # If PROVISION_BASIC_CLUSTER is set to false, you are not required to enter the values below
-PROVISION_BASIC_CLUSTER=    # true, false
-COMPARTMENT_OCID=
-TENANCY_OCID=
-USER_OCID=
-USER_FINGERPRINT=
-
+PROVISION_BASIC_CLUSTER=false
+COMPARTMENT_OCID=ocid1.compartment.oc1..aaaaaaaag4otvjvl3zo6jyzlevoycc5bqtst5uwixlpztaxlovm2fudabqnq
+TENANCY_OCID=ocid1.tenancy.oc1..aaaaaaaa6kxbn3rz7cv3l5rbf5nvkptu2k7ly3wwgqsmfowonkbgyp26267q
+USER_OCID=ocid1.user.oc1..aaaaaaaaggsgb2fll3kj6exhbj24coa6guoy6rtnzfg7473ff32plihmcqjq
+USER_FINGERPRINT=40:b5:12:e7:4c:39:23:3a:bf:94:e2:42:a2:44:99:fe
