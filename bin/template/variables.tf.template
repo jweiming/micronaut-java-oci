@@ -1,6 +1,8 @@
 # ---------------------------------------------------------------------------------------------------------------------
-# Environmental variables
-# You probably want to define these as environmental variables.
+# Terraform variables
+# DO NOT CHANGE THESE UNLESS YOU KNOW WHAT YOU ARE DOING
+# Note: The values will be replaced with the variables defined in the main vars file
+#
 # Instructions on that are here: https://github.com/cloud-partners/oci-prerequisites
 # ---------------------------------------------------------------------------------------------------------------------
 
@@ -40,7 +42,7 @@ variable "ssh_private_key" {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
-# The defaults here will give you a cluster.  You can also modify these.
+# The defaults here will give you a cluster. 
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "oke" {
