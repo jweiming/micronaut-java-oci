@@ -9,13 +9,14 @@ echo "mn-java-oci 0.0.1"
 FLAG=$PROVISION_BASIC_CLUSTER
 if [[ $FLAG = "true" ]]; then
   echo "[INFO]	PROVISION_BASIC_CLUSTER=$FLAG - Provisioning OKE cluster"
-  ./scripts/setup-oke.sh 
+  sed -e "s@<COMPARTMENT_OCID>@$COMPARTMENT_OCID@g" -e "s@<TENANCY_OCID>@$TENANCY_OCID@g" -e "s@<USER_OCID>@$USER_OCID@g" -e "s@<USER_FINGERPRINT>@$USER_FINGERPRINT@g" -e "s@<REGION>@$REGION_NAME@g" ./bin/template/variables.tf.template > ./bin/scripts/terraform/variables.tf
+  ./bin/scripts/setup-oke.sh 
 fi
 
 # Check if Micronaut is installed, otherwise install it
 if ! mn_loc="$(type -p "mn")" || [[ -z $mn_loc ]]; then
   echo "[INFO]	Installing Micronaut with SDKMAN! (details at https://sdkman.io/)"
-  ./scripts/setup-micronaut.sh 
+  ./bin/scripts/setup-micronaut.sh 
 fi
 
 # Create Micronaut Java application
