@@ -17,6 +17,7 @@ fi
 if ! mn_loc="$(type -p "mn")" || [[ -z $mn_loc ]]; then
   echo "[INFO]	Installing Micronaut with SDKMAN! (details at https://sdkman.io/)"
   ./bin/scripts/setup-micronaut.sh 
+  source "/home/opc/.sdkman/bin/sdkman-init.sh"
 fi
 
 # Create Micronaut Java application
