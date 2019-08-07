@@ -4,7 +4,7 @@
 APPLICATION_NAME=hello-world
 
 # OCI Registry
-REGION_CODE=		# e.g. iad
+REGION_CODE=		# e.g. iad, phx
 REGION_NAME=		# e.g. us-ashburn-1, us-phoenix-1
 TENANCY_NAME=
 
