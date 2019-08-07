@@ -12,8 +12,8 @@ box: gradle:5.5.1-jdk11
 # Read more about OCIR
 # https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html
 # Create the following envrionment variables into your Wercker application
-# 1. $USERNAME - username for container registry in OCIR
-# 2. $PASSWORD - password for container registry in OCIR (auth token value)
+# 1. $USERNAME - username for container registry in OCIR (e.g. tenancy_name/username)
+# 2. $PASSWORD - password for container registry in OCIR (e.g. your auth token value)
 # 3. $OKE_MASTER - Kubernetes address
 # 4. $OKE_TOKEN - token string to access the cluster
 
