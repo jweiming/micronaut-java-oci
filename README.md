@@ -60,7 +60,7 @@ tQIDAQAB
 [INFO]  Note: You are required to upload this key to your OCI user console. 
 ```
 
-Note down the your fingerprint ```b5:6c:ac:ff:4d:35:25:ee:5f:d7:29:73:9b:e2:cc:92``` value. Your fingerprint will be different as it is based off the dynamically generated keys. 
+Take note of your fingerprint value ```b5:6c:ac:ff:4d:35:25:ee:5f:d7:29:73:9b:e2:cc:92```. Your fingerprint will be different as it is based off the dynamically generated keys. 
 
 Now you will need to upload your public key. [https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm).
 
