@@ -1,6 +1,6 @@
 #Setting up the micronaut 
 
-!/bin/bash
+#!/bin/bash
 
 sdk_url=https://get.sdkman.io
 
