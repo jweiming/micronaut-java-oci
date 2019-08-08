@@ -1,5 +1,5 @@
 #setup oke, keys on OCI
-!/bin/bash
+#!/bin/bash
 
 echo "**** Start of OKE Setup ****"
 echo "**** Generating SSH Key ****"
