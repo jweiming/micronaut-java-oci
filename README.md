@@ -107,7 +107,7 @@ USER_FINGERPRINT=<user-fingerprint>		# e.g. b5:6c:ac:ff:4d:35:25:ee:5f:d7:29:73:
 
 ### Let's go into overdrive! (mn-java-oci)
 
-Now that you have configured it, the script ```mn-java-oci``` will create a Micronaut Java application structure and provision the OKE cluster for you if you define the ```PROVISION_BASIC_CLUSTER=true``` in the ```vars``` file.
+Now that you have configured it, executing the script ```mn-java-oci``` will create a Micronaut Java application structure and provision the OKE cluster for you if you define the ```PROVISION_BASIC_CLUSTER=true``` in the ```vars``` file.
 
 Note: The process takes less than a minute (without OKE cluster provisioning) and about 10 minutes (with OKE provisioning) due to the Terraform OCI process running backend.
 
