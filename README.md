@@ -103,6 +103,10 @@ USER_FINGERPRINT=<user-fingerprint>		# e.g. b5:6c:ac:ff:4d:35:25:ee:5f:d7:29:73:
 
 ### Generate your application code
 
+The script ```mn-java-oci``` will create a Micronaut Java application structure and provision the OKE cluster for you if you define the ```PROVISION_BASIC_CLUSTER=true``` in the ```vars``` file.
+
+Note: The process takes less than a minute (without OKE cluster provisioning) and about 10 minutes (with OKE provisioning) due to the Terraform OCI process running backend.
+
 ```
 $ bin/mn-java-oci
 mn-java-oci 0.0.1
@@ -128,13 +132,14 @@ suggested below.
 ...
 ```
 
-After 10-15 minutes, the following basic application structure will be created. 
+After it is completed, you will now have the following application structure. 
 
 * Java application files will be in ```micronaut-java-oci/hello-world/```.
 * Kubeconfig file in ```micronaut-java-oci/bin/scripts/terraform/config```
 * Wercker yaml is created in ```micronaut-java-oci/wercker.yml```
 * Kubernetes yaml files are created in ```micronaut-java-oci/hello-world/oke/```
 
+Note that you will find the ```OKE_MASTER``` and ```OKE_TOKEN``` values in the ```micronaut-java-oci/bin/scripts/terraform/config``` file generated.
 
 ### Setting up Wercker
 
