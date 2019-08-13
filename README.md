@@ -39,7 +39,9 @@ $ cd micronaut-java-oci
 $ chmod -R +x bin/
 ```
 
-### Create and upload the OCI API key
+### Create and upload the OCI API key (*for provisioning OKE)
+
+**Note**: If you do not require provisioning of OKE cluster, you can skip this step.
 
 Run the script to generate the API keys.
 
@@ -78,7 +80,7 @@ The Auth Token value will look something like ```fEfRHee}]Dwbn]2823:O```. This v
 
 Enter your application and OCI account values into the ```vars``` file. Refer to this for instructions on getting the values from OCI [https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm)
 
-By default, the OKE provisioning is disabled. If you need a OKE cluster, change the ```PROVISION_BASIC_CLUSTER=true```.
+**Note**: By default, the OKE provisioning is disabled. If you need a OKE cluster, change the ```PROVISION_BASIC_CLUSTER=true```. If you need OKE cluster provisioning, ensure you have completed the [Create and upload the OCI API key](#create-and-upload-the-oci-api-key) step.
 
 file: ```micronaut-java-oci/vars```
 
