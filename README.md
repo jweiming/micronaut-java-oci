@@ -80,7 +80,7 @@ The Auth Token value will look something like ```fEfRHee}]Dwbn]2823:O```. This v
 
 Enter your application and OCI account values into the ```vars``` file. Refer to this for instructions on getting the values from OCI [https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm)
 
-**Note**: By default, the OKE provisioning is disabled. If you need a OKE cluster, change the ```PROVISION_BASIC_CLUSTER=true```. If you need OKE cluster provisioning, ensure you have completed the [Create and upload the OCI API key](#create-and-upload-the-oci-api-key) step.
+**Note**: By default, the OKE provisioning is disabled. However, if you need a OKE cluster to be provisioned, change the ```PROVISION_BASIC_CLUSTER=true```. Also ensure you have completed the [Create and upload the OCI API key](#create-and-upload-the-oci-api-key-for-provisioning-oke) step before proceeding on.
 
 file: ```micronaut-java-oci/vars```
 
